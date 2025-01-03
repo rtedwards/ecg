@@ -21,6 +21,7 @@ numpy = "^2.2.1"
 tqdm = "^4.67.1"
 torcheval = "^0.0.7"
 mlflow = "^2.19.0"
+vl-convert-python = "^1.7.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.4"
@@ -103,6 +104,7 @@ select = [
 ignore = [
 	"D203", # one-blank-line-before-class
 	"D213", # multi-line-summary-second-line
+	"E501", # line-too-long
 ]
 extend-select = [
 	"UP", # pyupgrade
@@ -117,6 +119,9 @@ unfixable = []
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.per-file-ignores]
+"ecg/train.py" = [
+	"B007", # loop-control-variable
+]
 "tests/**/*.py" = []
 
 [tool.ruff.lint.pydocstyle]
